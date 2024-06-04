@@ -21,12 +21,15 @@ export function Steps() {
   return (
     <Box bg={"#ffffff"} position={"relative"} className="divider-before">
       <Container maxW={"container.xl"} p={{ base: 7, md: 14 }}>
-        <SimpleGrid columns={{ md: 2 }}>
+        <SimpleGrid columns={{ lg: 2 }}>
           <GridItem as={Stack} spacing={6}>
-            <Heading fontSize={"6xl"} pt={20}>
+            <Heading
+              fontSize={{ base: "3xl", md: "4xl", lg: "6xl" }}
+              pt={{ base: 6, lg: 20 }}
+            >
               How we ensure you're in good hands.
             </Heading>
-            <Text fontSize={"2xl"}>
+            <Text fontSize={{ base: "xl", md: "2xl" }}>
               With our comprehensive screening process, we hand-pick highly
               skilled candidates so you can onboard them in a matter of days.
             </Text>

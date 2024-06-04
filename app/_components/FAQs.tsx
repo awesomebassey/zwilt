@@ -20,13 +20,22 @@ import Icon from "./Icon";
 
 export function FAQs() {
   return (
-    <Box bg={"#f3f3f3"} position={"relative"} className="divider-before" pb={40}>
-      <Heading textAlign={"center"} fontSize={"6xl"} mt={20}>
+    <Box
+      bg={"#f3f3f3"}
+      position={"relative"}
+      className="divider-before"
+      pb={{ base: 20, md: 40 }}
+    >
+      <Heading
+        textAlign={"center"}
+        fontSize={{ base: "4xl", md: "6xl" }}
+        mt={{ base: 14, md: 20 }}
+      >
         Frequently asked questions
       </Heading>
       <Accordion my={20} allowToggle>
-        {faqs.map(({ question, answer, title, subtitle }) => (
-          <AccordionItem key={question}>
+        {faqs.map(({ question, answer, title, subtitle }, index) => (
+          <AccordionItem key={index}>
             {({ isExpanded }) => (
               <>
                 <AccordionButton
@@ -34,43 +43,56 @@ export function FAQs() {
                   py={0}
                 >
                   <SimpleGrid
-                    px={{ base: 7, md: 14 }}
+                    px={{ base: 0, md: 14 }}
                     alignItems={"center"}
                     columns={12}
                     minW={"full"}
                   >
                     <GridItem
-                      colSpan={2}
+                      colSpan={{ base: 6, md: 2 }}
+                      borderBottom={{ base: "1px solid #d6d6d6", md: "none" }}
+                      display={{ base: title ? "block" : "none", md: "block" }}
                     >
                       <Text
                         fontWeight={"semibold"}
                         fontSize={"2xl"}
-                        borderEnd={title ? "1px solid #d6d6d6" : "none"}
+                        borderEnd={{
+                          base: subtitle ? "1px solid #d6d6d6" : "none",
+                          md: title ? "1px solid #d6d6d6" : "none",
+                        }}
                         py={6}
-                        pe={20}
+                        pe={{ md: 7, lg: 20 }}
                       >
                         {title ?? <Spacer width={"80px"} height={30} />}
                       </Text>
                     </GridItem>
-                    <GridItem colSpan={2}>
+                    <GridItem
+                      colSpan={{ base: 6, md: 2 }}
+                      borderBottom={{ base: "1px solid #d6d6d6", md: "none" }}
+                      display={{ base: title ? "block" : "none", md: "block" }}
+                    >
                       <Text
                         fontWeight={"semibold"}
                         fontSize={"2xl"}
-                        borderEnd={subtitle ? "1px solid #d6d6d6" : "none"}
+                        borderEnd={{
+                          base: "none",
+                          md: subtitle ? "1px solid #d6d6d6" : "none",
+                        }}
                         textAlign={"center"}
                         py={6}
                       >
-                        {subtitle ?? <Spacer width={"80px"} height={30} />}
+                        {subtitle ?? <Spacer width={"80px"} height={"32px"} />}
                       </Text>
                     </GridItem>
-                    <GridItem colSpan={7}>
+                    <GridItem colSpan={{ base: 11, md: 7 }}>
                       <Text
                         fontWeight={isExpanded ? "semibold" : "normal"}
-                        fontSize={"2xl"}
+                        fontSize={{ base: "xl", md: "2xl" }}
                         textAlign={"start"}
-                        ps={20}
+                        ps={{ md: 20 }}
                         color={"#202229"}
                         opacity={0.8}
+                        p={7}
                       >
                         {question}
                       </Text>
@@ -89,20 +111,33 @@ export function FAQs() {
                     px={{ base: 7, md: 14 }}
                     alignItems={"center"}
                     w={"full"}
-                    columns={12}
+                    columns={{ base: 1, md: 12 }}
                   >
-                    <GridItem colSpan={2}>
+                    <GridItem
+                      colSpan={2}
+                      display={{ base: "none", md: "block" }}
+                    >
                       <Spacer width={"full"} height={30} />
                     </GridItem>
-                    <GridItem colSpan={2}>
+                    <GridItem
+                      colSpan={2}
+                      display={{ base: "none", md: "block" }}
+                    >
                       <Spacer width={"full"} height={30} />
                     </GridItem>
-                    <GridItem colSpan={7}>
-                      <Text fontSize={"lg"} color={"#202229"} ps={20}>
+                    <GridItem colSpan={{ base: 1, md: 7 }}>
+                      <Text
+                        fontSize={{ md: "lg" }}
+                        color={"#202229"}
+                        ps={{ md: 20 }}
+                      >
                         {answer}
                       </Text>
                     </GridItem>
-                    <GridItem colSpan={1}>
+                    <GridItem
+                      colSpan={1}
+                      display={{ base: "none", md: "block" }}
+                    >
                       <Spacer width={"full"} height={30} />
                     </GridItem>
                   </SimpleGrid>

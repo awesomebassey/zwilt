@@ -13,7 +13,7 @@ import { Image, Stack } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <Stack gap={10}>
+    <Stack spacing={10}>
       <Header />
       <Hero />
       <Image src="/images/divider.svg" width={"100%"} height={"100%"} />
@@ -21,7 +21,7 @@ export default function Home() {
       <Testimonials />
       <Steps />
       <StartJourney />
-      <WhyChoose />
+      {/* <WhyChoose /> */}
       <FAQs />
       <Footer />
     </Stack>

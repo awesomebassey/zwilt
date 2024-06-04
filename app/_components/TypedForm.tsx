@@ -30,7 +30,7 @@ export function TypedForm() {
           gap={1}
           h={"auto"}
           alignItems={"center"}
-          fontSize={"lg"}
+          fontSize={{ md: "lg" }}
           fontWeight={"semibold"}
           p={6}
           flexGrow={1}
@@ -61,7 +61,13 @@ export function TypedForm() {
             />
           </ReactTyped>
         </Flex>
-        <Button h={"auto"} bg={"#FFBE2E"} variant={"solid"} rounded={15} px={8}>
+        <Button
+          h={"auto"}
+          bg={"#FFBE2E"}
+          variant={"solid"}
+          rounded={15}
+          px={{ base: 4, md: 8 }}
+        >
           <Icon color="#202229" />
         </Button>
       </Flex>

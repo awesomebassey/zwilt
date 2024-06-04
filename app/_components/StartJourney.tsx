@@ -34,7 +34,7 @@ export function StartJourney() {
             }) => (
               <SimpleGrid
                 key={number}
-                columns={3}
+                columns={{ base: 1, md: 2, lg: 3 }}
                 bg={bg}
                 position={"relative"}
                 className={`divider-before-sm ${
@@ -47,11 +47,19 @@ export function StartJourney() {
                       src={numberImage}
                       alt={`${number}`}
                       position={"absolute"}
-                      left={6}
+                      left={5}
                       top={20}
                     />
-                    <Stack mt={20} gap={6} ps={24}>
-                      <Heading fontWeight={"semibold"} fontSize={"4xl"}>
+                    <Stack
+                      gap={{ base: 3, md: 6 }}
+                      ps={24}
+                      pt={20}
+                      pb={{ base: number === 3 ? 10 : 0, lg: 0 }}
+                    >
+                      <Heading
+                        fontWeight={"semibold"}
+                        fontSize={{ base: "2xl", md: "4xl" }}
+                      >
                         {heading}
                       </Heading>
                       <Text fontSize={"lg"} color={"#202229"} opacity={0.8}>
@@ -77,10 +85,10 @@ export function StartJourney() {
                     </Stack>
                   </Flex>
                 </GridItem>
-                <GridItem colSpan={1}>
+                <GridItem colSpan={1} display={{ base: "none", lg: "block" }}>
                   <Spacer width={"full"} />
                 </GridItem>
-                <GridItem>
+                <GridItem display={{ base: "none", md: "block" }}>
                   <Image src={image} alt={heading} width={"full"} />
                 </GridItem>
               </SimpleGrid>

@@ -2,7 +2,6 @@ import {
   Box,
   Container,
   Flex,
-  Grid,
   GridItem,
   Heading,
   IconButton,
@@ -22,46 +21,63 @@ export function Marketplace() {
       bg={"#EDEFFF"}
       position={"relative"}
       className="divider-before"
-      mt={5}
-      py={20}
+      mt={{ base: 10, md: 5 }}
+      pt={{ base: 0, lg: 20 }}
+      pb={20}
     >
       <Container maxW={"container.xl"} p={{ base: 7, md: 14 }}>
-        <Heading fontSize={"6xl"} p={20} textAlign={"center"}>
+        <Heading
+          fontSize={{ base: "3xl", md: "4xl", lg: "6xl" }}
+          py={{ base: 10, lg: 20 }}
+          px={{ base: 0, lg: 20 }}
+          textAlign={"center"}
+        >
           Your one-stop marketplace for finding the talent your business needs.
         </Heading>
         <SimpleGrid
           alignItems={"center"}
-          columns={6}
-          spacingX={20}
-          spacingY={6}
+          columns={{ base: 1, md: 6 }}
+          spacingX={{ lg: 20 }}
+          spacingY={{ base: 10, md: 6 }}
         >
-          <GridItem colSpan={2}>
-            <Stack spacing={10}>
-              <Heading fontSize={"3xl"} fontWeight={"medium"}>
+          <GridItem colSpan={{ md: 2 }}>
+            <Stack spacing={{ base: 6, md: 10 }}>
+              <Heading
+                fontSize={{ base: "xl", md: "3xl" }}
+                fontWeight={"medium"}
+              >
                 Find Dev and IT professionals to scale your business.
               </Heading>
-              <SimpleGrid columns={2} gap={6}>
-                {ratings.map(({ data, image }) => (
-                  <GridItem>
+              <SimpleGrid
+                columns={{ base: 2, md: 1, lg: 2 }}
+                gap={{ base: 1, md: 6 }}
+              >
+                {ratings.map(({ data, image }, index) => (
+                  <GridItem key={index}>
                     <Flex gap={2} alignItems={"center"}>
                       <Image src={`/images/${image}`} />
-                      <Text color={"#202229CC"} fontSize={"lg"}>{data}</Text>
+                      <Text color={"#202229CC"} fontSize={"lg"}>
+                        {data}
+                      </Text>
                     </Flex>
                   </GridItem>
                 ))}
               </SimpleGrid>
             </Stack>
           </GridItem>
-          <GridItem colSpan={4} ps={20}>
+          <GridItem colSpan={{ md: 4 }} ps={{ md: 20 }}>
             <Stack bg={"white"} rounded={7} p={6}>
               <Text fontSize={"lg"} fontWeight={"medium"}>
                 IT & Development
               </Text>
-              <SimpleGrid columns={6} spacing={10}>
+              <SimpleGrid
+                columns={{ base: 3, md: 4, lg: 6 }}
+                spacing={{ base: 10, md: 5, lg: 10 }}
+              >
                 {brands
                   .filter(({ category }) => category === "development")
-                  .map(({ name, image }) => (
-                    <GridItem as={Stack} spacing={3}>
+                  .map(({ name, image }, index) => (
+                    <GridItem key={index} as={Stack} spacing={3}>
                       <Image src={`/images/brands/${image}`} />
                       <Text fontWeight={"semibold"} textAlign={"center"}>
                         {name}
@@ -76,20 +92,26 @@ export function Marketplace() {
                     icon={<Icon color="black" />}
                     bg={"#f6f6f6"}
                     rounded={30}
-                    height={"80px"}
+                    height={{ base: "70px", md: "80px" }}
                   />
                 </Tooltip>
               </SimpleGrid>
             </Stack>
           </GridItem>
-          <GridItem colSpan={2}>
-            <Stack spacing={10}>
-              <Heading fontSize={"3xl"} fontWeight={"medium"}>
+          <GridItem colSpan={{ md: 2 }}>
+            <Stack spacing={{ base: 6, md: 10 }}>
+              <Heading
+                fontSize={{ base: "xl", md: "3xl" }}
+                fontWeight={"medium"}
+              >
                 Explore Creative individuals with a keen eye for detail.
               </Heading>
-              <SimpleGrid columns={2} gap={6}>
-                {ratings.map(({ data, image }) => (
-                  <GridItem>
+              <SimpleGrid
+                columns={{ base: 2, md: 1, lg: 2 }}
+                gap={{ base: 1, md: 6 }}
+              >
+                {ratings.map(({ data, image }, index) => (
+                  <GridItem key={index}>
                     <Flex gap={2} alignItems={"center"}>
                       <Image src={`/images/${image}`} />
                       <Text fontSize={"lg"}>{data}</Text>
@@ -97,7 +119,13 @@ export function Marketplace() {
                   </GridItem>
                 ))}
               </SimpleGrid>
-              <Flex as={Link} href={"#!"} gap={2} alignItems={"center"}>
+              <Flex
+                display={{ base: "none", lg: "flex" }}
+                as={Link}
+                href={"#!"}
+                gap={2}
+                alignItems={"center"}
+              >
                 <IconButton
                   aria-label="Explore More"
                   icon={<Icon color="white" />}
@@ -112,12 +140,15 @@ export function Marketplace() {
               </Flex>
             </Stack>
           </GridItem>
-          <GridItem colSpan={4} ps={20}>
+          <GridItem colSpan={{ md: 4 }} ps={{ md: 20 }}>
             <Stack bg={"white"} rounded={7} p={6}>
               <Text fontSize={"lg"} fontWeight={"medium"}>
                 Design & Creative
               </Text>
-              <SimpleGrid columns={6} spacing={10}>
+              <SimpleGrid
+                columns={{ base: 3, md: 4, lg: 6 }}
+                spacing={{ base: 10, md: 5, lg: 10 }}
+              >
                 <Tooltip label="View All">
                   <IconButton
                     as={Link}
@@ -127,26 +158,39 @@ export function Marketplace() {
                     bg={"#f6f6f6"}
                     rounded={30}
                     height={"80px"}
+                    display={{ base: "none", lg: "inline-flex" }}
                   />
                 </Tooltip>
                 {brands
                   .filter(({ category }) => category === "design")
-                  .map(({ name, image }) => (
-                    <GridItem as={Stack} spacing={3}>
+                  .map(({ name, image }, index) => (
+                    <GridItem key={index} as={Stack} spacing={3}>
                       <Image src={`/images/brands/${image}`} />
                       <Text fontWeight={"semibold"} textAlign={"center"}>
                         {name}
                       </Text>
                     </GridItem>
                   ))}
+                <Tooltip label="View All">
+                  <IconButton
+                    as={Link}
+                    href={"#!"}
+                    aria-label="View More"
+                    icon={<Icon color="black" rotate={"-180deg"} />}
+                    bg={"#f6f6f6"}
+                    rounded={30}
+                    display={{ base: "inline-flex", lg: "none" }}
+                    height={{ base: "70px", md: "80px" }}
+                  />
+                </Tooltip>
               </SimpleGrid>
             </Stack>
             <Text
-              my={6}
+              my={{ base: 3, md: 6 }}
               display={"inline-block"}
               as={Link}
               href={"#!"}
-              fontSize={"2xl"}
+              fontSize={{ base: "xl", lg: "2xl" }}
             >
               <Text as={"span"} fontWeight={"bold"}>
                 30 more

@@ -54,15 +54,25 @@ export function Footer() {
           className="divider-before divider-after"
           bg={"#525AA0"}
           spacing={6}
-          py={20}
+          pt={{ base: 10, md: 20 }}
+          pb={20}
         >
           <Heading
             color={"white"}
             textAlign={"center"}
             fontWeight={"semibold"}
-            fontSize={"6xl"}
+            fontSize={{ base: "3xl", md: "6xl" }}
+            display={{ base: "flex", md: "block" }}
+            justifyContent={"center"}
+            flexWrap={"wrap"}
           >
-            Need a job done, and done <br /> well? Get started
+            <Text as={"span"}>
+              Need a job done, and done&nbsp;
+              <Text as={"span"} display={{ base: "none", md: "inline" }}>
+                <br />
+              </Text>
+            </Text>
+            <Text as={"span"}>well? Get started</Text>
           </Heading>
           <IconButton
             as={Link}
@@ -80,11 +90,11 @@ export function Footer() {
           bg={"transparent"}
           position={"relative"}
           className="divider-before"
-          spacing={"100px"}
-          my={30}
+          spacing={{ base: "30px", lg: "100px" }}
+          my={{ lg: 30 }}
           py={40}
         >
-          <GridItem colSpan={4}>
+          <GridItem colSpan={{ base: 12, lg: 4 }}>
             <Link href={"/"}>
               <Image
                 src="/images/zwilt-logo.svg"
@@ -93,7 +103,7 @@ export function Footer() {
                 height={30}
               />
             </Link>
-            <Text mt={10} mb={20} color={"white"}>
+            <Text mt={10} mb={{ base: 10, md: 20 }} color={"white"}>
               We take complex hiring processes - and simplify them. Connecting
               you to the world's highly qualified talent pool.
             </Text>
@@ -116,12 +126,16 @@ export function Footer() {
               ))}
             </ButtonGroup>
           </GridItem>
-          <GridItem colSpan={8}>
-            <Stack gap={20}>
-              <Heading color={"white"} fontWeight={"semibold"} fontSize={"6xl"}>
+          <GridItem colSpan={{ base: 12, lg: 8 }}>
+            <Stack gap={{ base: 6, md: 20 }}>
+              <Heading
+                color={"white"}
+                fontWeight={"semibold"}
+                fontSize={{ base: "3xl", md: "6xl" }}
+              >
                 Connecting the right people to the right businesses.
               </Heading>
-              <SimpleGrid columns={4} spacing={10}>
+              <SimpleGrid columns={{ base: 2, md: 4 }} spacing={10}>
                 {Object.keys(groupedMenu).map((category) => (
                   <GridItem key={category}>
                     <Stack gap={6}>
@@ -158,14 +172,25 @@ export function Footer() {
             </Stack>
           </GridItem>
         </SimpleGrid>
-        <Flex alignItems={"center"} borderTop={"1px solid #ffffff"} py={5}>
-          <Text color={"white"} fontWeight={"medium"} fontSize={"lg"}>
+        <Flex
+          flexDir={{ base: "column-reverse", md: "row" }}
+          alignItems={"center"}
+          borderTop={"1px solid #ffffff"}
+          py={5}
+          width={"full"}
+        >
+          <Text
+            color={"white"}
+            fontWeight={"medium"}
+            fontSize={"lg"}
+            mt={{ base: 5, md: 0 }}
+          >
             All rights reserved by Zwilt
           </Text>
           <Text
             as={Link}
             href={"#!"}
-            ms={"auto"}
+            ms={{ md: "auto" }}
             color={"white"}
             fontWeight={"medium"}
             fontSize={"lg"}

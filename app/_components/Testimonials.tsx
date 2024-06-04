@@ -21,37 +21,53 @@ export function Testimonials() {
         src="/images/quotes.svg"
         position={"absolute"}
         alt="Quotes"
-        top={"-78px"}
+        top={{ base: "-62px", md: "-70px", lg: "-78px" }}
         right={5}
         transform={"SkewY(-2deg)"}
       />
       <Container maxW={"container.xl"} p={{ base: 7, md: 14 }}>
-        <SimpleGrid columns={6} gap={20} py={40} alignItems={"center"}>
+        <SimpleGrid
+          columns={{ base: 1, lg: 6 }}
+          gap={{ base: 10, lg: 20 }}
+          pt={{ base: 10, lg: 40 }}
+          pb={40}
+          alignItems={"center"}
+        >
           <GridItem colSpan={3}>
-            <Stack spacing={10} pe={20}>
+            <Stack spacing={10} pe={{ md: 20 }}>
               <Heading
                 as={Flex}
                 alignItems={"center"}
                 flexWrap={"wrap"}
-                fontSize={"6xl"}
+                fontSize={{ base: "4xl", md: "6xl" }}
                 color={"white"}
+                zIndex={1}
               >
                 <Text as={"span"}>
                   How it worked <br />
                 </Text>
-                <Text as={"span"}>for Jason&nbsp;</Text>
+                <Text as={"span"}>&nbsp;for Jason&nbsp;</Text>
                 <Image
                   src="/images/jason.jpg"
                   rounded={"full"}
-                  width={50}
-                  height={50}
+                  width={{ base: "40px", md: 50 }}
+                  height={{ base: "40px", md: 50 }}
                 />
                 <Text as={"span"}>
-                  &nbsp;at <br />
+                  &nbsp;at&nbsp;<br />
                 </Text>
-                <Image src="/images/groovehq.svg" alt="Groove HQ" />
+                <Image
+                  src="/images/groovehq.svg"
+                  alt="Groove HQ"
+                  mt={2}
+                  width={{ base: "140px", md: "180px" }}
+                />
               </Heading>
-              <Text color={"white"} fontSize={"2xl"} opacity={0.8}>
+              <Text
+                color={"white"}
+                fontSize={{ base: "xl", md: "2xl" }}
+                opacity={0.8}
+              >
                 Zwilt enabled us to deliver on time and they've been heavy
                 hitters in our corner since.
               </Text>
@@ -84,7 +100,7 @@ export function Testimonials() {
               </ButtonGroup>
             </Stack>
           </GridItem>
-          <GridItem colSpan={3}>
+          <GridItem colSpan={3} display={{ base: "none", md: "block" }}>
             <Stack spacing={10}>
               <Flex alignItems={"center"} gap={4}>
                 <Image src="/images/groove-logo.svg" alt="Groove Logo" />

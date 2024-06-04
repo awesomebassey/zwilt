@@ -12,7 +12,7 @@ export function CareerSections() {
   };
 
   return (
-    <Box bg={"#F8F8F8"} rounded={15} p={6} my={10}>
+    <Box bg={"#F8F8F8"} rounded={15} p={{ base: 3, md: 6 }} my={10}>
       <Flex
         maxW={{ md: "50%" }}
         bg={"#D2D2D226"}
@@ -44,7 +44,11 @@ export function CareerSections() {
           </Box>
         ))}
       </Flex>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} mx={10}>
+      <SimpleGrid
+        columns={{ base: 2, md: 3 }}
+        spacing={{ base: 5, md: 10 }}
+        mx={{ base: 5, md: 10 }}
+      >
         <GridItem>
           <Stack>
             {[
@@ -57,7 +61,7 @@ export function CareerSections() {
                 key={item}
                 _hover={{ color: "#202229" }}
                 color={"#959595"}
-                fontSize={"lg"}
+                fontSize={{ md: "lg" }}
                 cursor={"pointer"}
               >
                 {item}
@@ -77,7 +81,7 @@ export function CareerSections() {
                 key={item}
                 _hover={{ color: "#202229" }}
                 color={"#959595"}
-                fontSize={"lg"}
+                fontSize={{ md: "lg" }}
                 cursor={"pointer"}
               >
                 {item}
@@ -91,18 +95,25 @@ export function CareerSections() {
               "Shopify Developer",
               "Python Developer",
               "Full Stack Developer",
-              "Explore More",
             ].map((item) => (
               <Text
                 key={item}
                 _hover={{ color: "#202229" }}
                 color={"#959595"}
-                fontSize={"lg"}
+                fontSize={{ md: "lg" }}
                 cursor={"pointer"}
               >
                 {item}
               </Text>
             ))}
+            <Text
+              color={"#202229"}
+              fontSize={{ md: "lg" }}
+              fontWeight={"bold"}
+              cursor={"pointer"}
+            >
+              Explore More
+            </Text>
           </Stack>
         </GridItem>
       </SimpleGrid>
