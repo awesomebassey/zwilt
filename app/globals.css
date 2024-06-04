@@ -1,33 +1,63 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+#type-input {
+    width: 100%;
+    height: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+#type-input::placeholder {
+    font-size: 16;
+    color: #959595;
+    font-weight: 500;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+#type-label {
+    cursor: text;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.divider-before::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left:0;
+    right: 0;
+    height: 100px;
+    transform: skewY(-2deg);
+    background-color: inherit;
+}
+
+.divider-before-sm::before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left:0;
+    right: 0;
+    height: 50px;
+    transform: skewY(-2deg);
+    background-color: white;
+}
+
+.divider-after::after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left:0;
+    right: 0;
+    height: 100px;
+    transform: skewY(-2deg);
+    background-color: inherit;
+}
+
+.divider-after-sm::after {
+    content: "";
+    position: absolute;
+    bottom: -35px;
+    left:0;
+    right: 0;
+    height: 80px;
+    transform: skewY(-2deg);
+    background-color: white;
+}
+
+:focus-visible {
+    outline: none !important;
+    border: none !important;
 }
