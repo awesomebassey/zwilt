@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a submission of the Reactjs Evaluation by Punch.
 
-## Getting Started
+The submission uses Next.js and Chakra UI to create the design as shown in the provided Figma design.
 
-First, run the development server:
+Next.js was used because of it's superior features - this ensures that the project is scalable and can include custom routing, caching and various API calls with ease.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Chakra UI was also used because of it's readymade reusable components that can easily be customized to suit any changes to the UI or functionalities in the nearest future.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Challenges
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Some parts of the UI were very challenging to represent as they contain some unrealistic design patterns but I did my best to represent them as best as I could.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Also, some parts of the design were not done to scale so they look a lot bigger on bigger screens. This was also caused by lack of access to accurate measurements; Figma needed to be enabled in Dev Mode for some precise measurements to be gotten and this was practically impossible at the time.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The project was created to be as near picture-perfect as possible and with assumptions that in the real world, changes to certain styles employed would be made and effected - this means that the site is not perfect, but it was created with the assumption that in the real world, there would be room for corrections and updates.
