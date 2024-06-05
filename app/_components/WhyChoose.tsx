@@ -11,62 +11,109 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import Icon from "./Icon";
+import { whyChooseUs } from "@/app/_constants";
 
 export function WhyChoose() {
   return (
-    <Box bgGradient={"linear(to-b, #ffffff, #edeff)"} pt={50} pb={150}>
-      <SimpleGrid alignItems={"center"} columns={12} ps={{ base: 7, md: 14 }}>
-        <GridItem colSpan={4}>
+    <Box
+      bg={"#EDEFFF"}
+      bgGradient="linear(to-b, #FFFFFF, #EDEFFF)"
+      pt={50}
+      pb={150}
+    >
+      <SimpleGrid
+        alignItems={"center"}
+        columns={12}
+        ps={{ base: 7, md: 14 }}
+        gap={7}
+      >
+        <GridItem colSpan={{ base: 12, lg: 4 }}>
           <Stack gap={10}>
-            <Heading fontSize={"6xl"}>Why Choose Zwilt?</Heading>
-            <Text fontSize={"2xl"}>
+            <Heading fontSize={{ base: "4xl", md: "6xl" }}>
+              Why Choose Zwilt?
+            </Heading>
+            <Text fontSize={{ base: "xl", md: "2xl" }}>
               We take complex hiring processes - and simplify them. Connecting
               you to the world's highly qualified talent pool.
             </Text>
           </Stack>
         </GridItem>
-        <GridItem colSpan={8} overflow={"scroll"}>
-          <Flex minWidth={"1300px"}>
-            <Flex shadow={"lg"} rounded={20} p={10} gap={10}>
-              <Stack gap={10} flexGrow={1}>
-                <Heading fontSize={"6xl"}>Onboard without the risk</Heading>
-                {[
-                  "We pick the best for you to select.",
-                  "Thousands of vetted candidates in dozens of categories.",
-                  "Risk-free resource swapping for the best fit.",
-                ].map((item) => (
-                  <Flex key={item} alignItems={"center"} gap={2}>
-                    <Box width={18} height={7} rounded={21} bg={"#50589F"} />
-                    <Text fontSize={"2xl"}>{item}</Text>
-                  </Flex>
-                ))}
-                <Flex
-                  alignItems={"center"}
-                  as={Link}
-                  href={"#!"}
-                  mb={10}
-                  gap={2}
+        <GridItem
+          as={Flex}
+          w={"full"}
+          p={{ base: 2, md: 10 }}
+          gap={10}
+          colSpan={{ base: 12, lg: 8 }}
+          overflowX={"auto"}
+        >
+          {whyChooseUs.map(({ heading, points, pointsColor, image }, index) => (
+            <Flex
+              w={"full"}
+              minW={{ base: "280px", md: "950px" }}
+              bg={"white"}
+              shadow={"lg"}
+              rounded={20}
+              key={index}
+            >
+              <SimpleGrid columns={12} px={10} py={6} gap={5}>
+                <GridItem colSpan={{ base: 12, md: 6 }}>
+                  <Stack gap={7}>
+                    <Heading fontSize={{ base: "3xl", md: "5xl" }}>
+                      {heading}
+                    </Heading>
+                    {points.map((item) => (
+                      <SimpleGrid
+                        columns={12}
+                        key={item}
+                        alignItems={"center"}
+                        gap={{ base: 1, md: 5 }}
+                      >
+                        <GridItem colSpan={{ base: 12, md: 1 }}>
+                          <Box
+                            width={"18px"}
+                            height={"7px"}
+                            rounded={21}
+                            bg={pointsColor}
+                          />
+                        </GridItem>
+                        <GridItem colSpan={{ base: 12, md: 11 }}>
+                          <Text fontSize={"xl"}>{item}</Text>
+                        </GridItem>
+                      </SimpleGrid>
+                    ))}
+                    <Flex
+                      alignItems={"center"}
+                      as={Link}
+                      href={"#!"}
+                      mb={10}
+                      gap={2}
+                    >
+                      <IconButton
+                        aria-label={"Learn More"}
+                        icon={<Icon color="white" />}
+                        bg={"black"}
+                        rounded={20}
+                        px={{ base: 2, md: 5 }}
+                        py={{ base: 4, md: 7 }}
+                      />
+                      <Text
+                        fontWeight={"medium"}
+                        fontSize={{ base: "xl", md: "2xl" }}
+                      >
+                        Learn More
+                      </Text>
+                    </Flex>
+                  </Stack>
+                </GridItem>
+                <GridItem
+                  colSpan={{ base: 12, md: 6 }}
+                  display={{ base: "none", md: "block" }}
                 >
-                  <IconButton
-                    aria-label={"Learn More"}
-                    icon={<Icon color="white" />}
-                    bg={"black"}
-                    rounded={20}
-                    px={5}
-                    py={7}
-                  />
-                  <Text fontWeight={"medium"} fontSize={"2xl"}>
-                    Learn More
-                  </Text>
-                </Flex>
-              </Stack>
-              <Image
-                src="/images/wcu-1.webp"
-                width={"100%"}
-                alt="Why Choose Zwilt"
-              />
+                  <Image src={image} alt={heading} />
+                </GridItem>
+              </SimpleGrid>
             </Flex>
-          </Flex>
+          ))}
         </GridItem>
       </SimpleGrid>
     </Box>

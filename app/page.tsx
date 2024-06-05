@@ -21,7 +21,7 @@ export default function Home() {
       <Testimonials />
       <Steps />
       <StartJourney />
-      {/* <WhyChoose /> */}
+      <WhyChoose />
       <FAQs />
       <Footer />
     </Stack>

@@ -252,3 +252,41 @@ export const journeySections: {
     image: "/images/journey-3.webp",
   },
 ];
+
+export const whyChooseUs: {
+  heading: string;
+  points: string[];
+  pointsColor: string;
+  image: string;
+}[] = [
+  {
+    heading: "Onboard without the risk.",
+    points: [
+      "We pick the best for you to select.",
+      "Thousands of vetted candidates in dozens of categories.",
+      "Risk-free resource swapping for the best fit.",
+    ],
+    pointsColor: "#50589F",
+    image: "/images/wcu-1.webp",
+  },
+  {
+    heading: "An open book.",
+    points: [
+      "Easy and transparent one-to-one chat with candidates.",
+      "Simple and convenient payment methods.",
+      "Review past ratings.",
+    ],
+    pointsColor: "#FFBE2E",
+    image: "/images/wcu-2.webp",
+  },
+  {
+    heading: "Stay in the loop.",
+    points: [
+      "Track your staff activity down to every minute with screenshots.",
+      "Comprehensive timesheet data to process payments.",
+      "Create projects to organize and assign tasks more effectively.",
+    ],
+    pointsColor: "#C7F4C2",
+    image: "/images/wcu-3.webp",
+  },
+];
